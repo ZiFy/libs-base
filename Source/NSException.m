@@ -900,7 +900,7 @@ GSPrivateReturnAddresses(NSUInteger **returns)
       *returns = malloc(numReturns * sizeof(void*));
       memcpy(*returns, addr, numReturns * sizeof(void*));
     }
-#elif	defined(HAVE_UNWIND_H)
+#elif defined(WITH_UNWIND)
   void          *addr[MAXFRAMES];
   
   struct GSBacktraceState state = {addr, addr + MAXFRAMES};
@@ -1282,7 +1282,7 @@ GSPrivateReturnAddresses(NSUInteger **returns)
         }
       symbols = [[NSArray alloc] initWithObjects: symbolArray count: count];
       free(strs);
-#elif	defined(HAVE_UNWIND_H)
+#elif defined(WITH_UNWIND)
       void              **ptrs = (void**)&returns[FrameOffset];
       NSString	        **symbolArray;
 

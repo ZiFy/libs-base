@@ -32,7 +32,7 @@
 
 #if OS_API_VERSION(MAC_OS_X_VERSION_10_8, GS_API_LATEST)
 
-#if defined (__MINGW__)
+#if defined (_WIN32)
 typedef unsigned gid_t;
 typedef unsigned uid_t;
 #endif

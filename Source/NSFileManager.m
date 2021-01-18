@@ -4042,11 +4042,15 @@ static NSSet	*fileKeys = nil;
       case S_IFREG: return NSFileTypeRegular;
       case S_IFDIR: return NSFileTypeDirectory;
       case S_IFCHR: return NSFileTypeCharacterSpecial;
+#ifdef S_IFBLK
       case S_IFBLK: return NSFileTypeBlockSpecial;
+#endif
 #ifdef S_IFLNK
       case S_IFLNK: return NSFileTypeSymbolicLink;
 #endif
+#ifdef S_IFIFO
       case S_IFIFO: return NSFileTypeFifo;
+#endif
 #ifdef S_IFSOCK
       case S_IFSOCK: return NSFileTypeSocket;
 #endif
